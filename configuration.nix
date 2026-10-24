@@ -93,6 +93,7 @@
     gimp-with-plugins
     vlc
     ffmpeg-full
+    prismlauncher
   ];
 
   services.displayManager.autoLogin.enable = true;
