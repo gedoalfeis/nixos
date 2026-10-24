@@ -76,6 +76,8 @@
     "electron-41.10.7"
   ];
 
+  programs.java.enable = true;
+
   environment.systemPackages = with pkgs; [ 
     gnomeExtensions.appindicator
     kitty
@@ -94,6 +96,7 @@
     vlc
     ffmpeg-full
     prismlauncher
+    jdk25
   ];
 
   services.displayManager.autoLogin.enable = true;
