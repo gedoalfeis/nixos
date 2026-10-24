@@ -99,6 +99,7 @@
     jdk25
     gutenprint
     canon-cups-ufr2
+    sane-backends
   ];
 
   services.displayManager.autoLogin.enable = true;
@@ -106,8 +107,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
   services.printing.drivers = [ pkgs.gutenprint pkgs.canon-cups-ufr2 ];
+
+  hardware.sane.enable = true;
+  hardware.sane.backends-package = pkgs.sane-backends;
+  hardware.sane.extraBackends = [ pkgs.sane-backends ];
 
   programs.bash.enable = true;
 
@@ -135,7 +139,7 @@
   users.users."gedo" = {
     isNormalUser = true;
     description = "Doris und Gerd Alfeis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     packages = with pkgs; [
     #  thunderbird
     ];
