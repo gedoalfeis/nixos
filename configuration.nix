@@ -97,6 +97,8 @@
     ffmpeg-full
     prismlauncher
     jdk25
+    gutenprint
+    canon-cups-ufr2
   ];
 
   services.displayManager.autoLogin.enable = true;
@@ -104,6 +106,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  services.printing.drivers = [ pkgs.gutenprint pkgs.canon-cups-ufr2 ];
 
   programs.bash.enable = true;
 
